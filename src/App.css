@@ -1,38 +1,146 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* App.css */
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #282c34; /* Set a dark background color */
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+  background-color: #ffffff; /* White background for the container */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+  margin: 20px;
+}
+
+h1 {
+  color: #333;
+}
+
+/* General Button Styles */
+.wallet-adapter-dropdown {
+  width: 60%; /* Make the button full width within its container */
+  max-width: 300px; /* Optional: Set a maximum width for larger screens */
+  padding: 10px 20px; /* Adjust padding for better spacing */
+  font-size: 16px; /* Set a base font size */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-sizing: border-box;
+  text-align: center;
+  display: block;
+  margin: 10px auto; /* Center the button horizontally */
+}
+
+.wallet-adapter-dropdown:hover {
+  transform: scale(1.05);
+  color:#512da8; /* Slightly enlarge the button on hover */
+}
+
+.wallet-adapter-modal-list-more {
+  cursor: pointer;
+  border: none;
+  padding: 12px 24px 24px 12px;
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.wallet-adapter-modal-button-close {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  position: absolute;
+  top: 18px;
+  right: 8px;
+  padding: 12px;
+  cursor: pointer;
+  background: #1a1f2e;
+  border: none;
+  border-radius: 50%;
+  margin-left: 2px;
+}
+
+/* Make all form elements have the same width */
+input, select, button {
+  width: calc(100% - 20px); /* Consistent width with padding and margin */
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  box-sizing: border-box; /* Ensures padding and border are included in the width */
+}
+button {
+  background-color: #007bff;
   color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  background-color: #0056b3;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Responsive Design */
+@media (max-width: 600px) {
+  .container {
+      width: 90%;
+      margin: 10px;
+      padding: 20px;
   }
-  to {
-    transform: rotate(360deg);
+
+  input, select, button {
+      font-size: 14px;
+      padding: 8px;
+  }
+
+  h1 {
+      font-size: 24px;
+  }
+}
+.wallet-adapter-dropdown {
+  font-size: 14px; /* Slightly smaller font on smaller screens */
+  padding: 8px 16px;
+  width: 53%;
+   /* Adjust padding for smaller screens */
+}
+
+@media (min-width: 601px) and (max-width: 1200px) {
+  .container {
+      width: 80%;
+      max-width: 600px;
+  }
+
+  h1 {
+      font-size: 28px;
+  }
+}
+
+.wallet-adapter-dropdown {
+  font-size: 15px; /* Medium font size for tablet-sized screens */
+  padding: 9px 18px; /* Adjust padding for medium screens */
+  width: 53%;
+}
+
+/* Larger Screens */
+@media (min-width: 1201px) {
+  .wallet-adapter-dropdown {
+      max-width: 350px; /* Increase max width for larger screens */
   }
 }

@@ -1,17 +1,22 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
+import ReactDOM from 'react-dom';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { WalletProvider } from '@solana/wallet-adapter-react';
+import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
+import {
+  PhantomWalletAdapter,
+  SolflareWalletAdapter,
+} from '@solana/wallet-adapter-wallets';
+import { ConnectionProvider } from '@solana/wallet-adapter-react';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+const network = WalletAdapterNetwork.Devnet;
+const wallets = [new PhantomWalletAdapter(), new SolflareWalletAdapter()];
+
+ReactDOM.render(
+  <ConnectionProvider endpoint={`https://api.devnet.solana.com`}>
+    <WalletProvider wallets={wallets} autoConnect>
+      <App />
+    </WalletProvider>
+  </ConnectionProvider>,
+  document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
